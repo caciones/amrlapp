@@ -1,0 +1,19 @@
+<div *ngIf='literary_point'>
+
+    <p>
+
+        <mat-toolbar class="lrd_toolbar">
+          <button (click)="goBack()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <span>{{ literary_point.title }}</span>
+        </mat-toolbar>
+    </p>
+</div>
+
+<div *ngIf='literary_point'>
+  <mat-card>
+    <mat-card-content>{{ literary_point.text }}</mat-card-content>
+  </mat-card>
+  <ng-image-slider [images]="slider_images" #nav></ng-image-slider>
+</div>

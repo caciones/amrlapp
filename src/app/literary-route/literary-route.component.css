@@ -1,0 +1,36 @@
+.lt_toolbar{
+  color: whitesmoke;
+  background-color: rgb(221, 144, 1);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+ 
+}
+
+
+.example-full-width {
+  width: 100%;
+}
+
+
+.example-card {
+    max-width: 500px;
+    margin-bottom: 8px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;   
+  }
+
+div {
+
+    background-color: rgb(194, 194, 194); 
+    
+ }
+
+.rl-grid{
+  background-color: rgb(221, 144, 1);
+  width:100%;
+  text-align:left;
+} 
+ 

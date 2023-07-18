@@ -1,0 +1,79 @@
+
+<div *ngIf='literary_route'>
+
+    <p>
+
+        <mat-toolbar class="lrd_toolbar">
+          <button (click)="goBack()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <span>{{ literary_route.name }}</span>
+        </mat-toolbar>
+   
+        <div class="mat-body-1">
+          <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title-group routerLink="/route/{{ literary_route.id }}">
+                  <mat-card-title> {{literary_route.name}} </mat-card-title>
+                  <mat-card-subtitle><p>{{literary_route.city}}</p>Caminhada</mat-card-subtitle>
+                  <div *ngIf='literary_route.points[0].images[0]'>
+                    <img mat-card-md-image src={{literary_route.points[0].images[0].image}}  alt={{literary_route.points[0].images[0].name}}>
+                  </div>
+                </mat-card-title-group>
+              </mat-card-header>
+              {{literary_route.distance.km}}
+    {{literary_route.distance.estimated_duration}}
+              <mat-card-content >
+                <mat-card-subtitle><b>Escritores:</b></mat-card-subtitle>
+                
+                <mat-card-subtitle *ngFor="let writer of literary_route.writer" style="color:rgb(158, 95, 0);">{{writer.name}}</mat-card-subtitle>
+                 <!--  <a routerLink="/route/{{ literary_route.id }}">{{literary_route.name}}</a> -->
+              </mat-card-content>
+            </mat-card>
+          
+          </div>
+    <!-- 
+    <p>{{literary_route.city}}</p>
+    <ul>
+        <li *ngFor="let point of literary_route.points">
+            <a routerLink="/point/{{ point.id }}">{{point.title}}</a>
+            {{point.sequence_number}}
+            {{point.location|json}}
+        </li>
+    </ul>
+    <ul>
+        <li *ngFor="let writer of literary_route.writer">
+            {{writer.name}}
+            {{writer.nationality}}
+            {{writer.birth_date}}
+        </li>
+    </ul>
+    <button (click)="goBack()">go back</button>
+    <p>{{literary_route.directions|json}}</p> -->
+
+    <google-map height="500px"
+            width="500x"
+            [center]="literary_route.points[0].location"
+            [zoom]="14">
+        <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults"
+                                [directions]="directionsResults"></map-directions-renderer>
+    </google-map>
+</div>
+
+
+<div *ngIf='literary_route'>
+
+  <mat-nav-list *ngFor="let point of literary_route.points">
+    <mat-list-item routerLink="/point/{{ point.id }}">
+      <a >{{point.title}}</a>
+      
+     
+       <button mat-raised-button color="warn" (click)="point" matListItemMeta>
+         {{point.sequence_number}}
+       </button>
+       
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-nav-list>
+
+</div>

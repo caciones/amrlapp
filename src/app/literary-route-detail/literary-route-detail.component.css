@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.lrd_toolbar{
+  color: whitesmoke;
+  background-color: rgb(221, 144, 1);
+}
+

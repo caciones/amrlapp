@@ -1,0 +1,9 @@
+{
+    "/api/": {
+        "target": "https://amrl.onrender.com",
+       
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
